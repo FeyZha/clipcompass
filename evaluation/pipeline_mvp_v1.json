@@ -1,0 +1,46 @@
+{
+  "id": "pipeline_mvp_v1",
+  "frozen": true,
+  "frozen_at": "2026-09-26T13:56:44.693214+00:00",
+  "scope": "four-video Demo Collection; L Rescue disabled; no external answer fallback",
+  "flow": [
+    "DeepSeek deepseek-flash Query Understanding",
+    "Window M BAAI/bge-small-en-v1.5 cosine Top20",
+    "cross-encoder/ms-marco-MiniLM-L6-v2 reranking",
+    "fixed previous/core/next Evidence Bundle",
+    "DeepSeek deepseek-flash Answer Gate cascade Top5 then 6-20",
+    "core start navigation plus recommended bundle watch range"
+  ],
+  "prompts": {
+    "query_understanding_sha256": "9cf7fbf816c32ccda5f43eaa74b1e832416a33cf4f2b1a988bd6d94c2a435774",
+    "query_schema_sha256": "928d39c370fcde505b60138652aced649d5022dfd602fef68b6a3d9ce9cbcb33",
+    "answer_gate_bundle_sha256": "d2b42ed4dff8ce85bccf460020bdb193a6802daec6e354c84348382724820bfa",
+    "answer_gate_schema_sha256": "4fc1d284ee4f76015e9730a4251123eb949addbde9220ffcea0bb69750e9d21b",
+    "temperature": 0.0
+  },
+  "artifacts": {
+    "window_m_chunks_sha256": "d971875ef739cb10d2db821284fac98e2705089bf2abe2623e5b56da76940dc6",
+    "window_m_embeddings_sha256": "af6093b2d9e90702cd5bfd6b7c8fc70901a9561058558802a6446085ee700346",
+    "answer_gate_bundle_source_sha256": "d538b09a3b12127971dfb6da2015deedf4b17a67a45153a3d2620aca1da87705",
+    "answer_gate_source_sha256": "ee0b3788b0786029b416ce6ca921805ed48e4d0fdd58127d4eeb71cc228b5ffe",
+    "provider_source_sha256": "5f998075b8deaad6482cd8d3cbfa33a6b6f3f78cc9883f5d56c7d2a46cb1f0fb",
+    "deepseek_source_sha256": "54a445719ba383680201055272dc58eafc1f25b40a700c288183138b9d0ce65f",
+    "holdout_summary_sha256": "712b072891ffea23b37a26acc84cd10574d97145407535c26d56d1afa41df6d0"
+  },
+  "sizes_bytes": {
+    "bge_small_en_v1_5": 134414576,
+    "ms_marco_minilm_l6_v2": 91821908,
+    "embedding_index": 705217
+  },
+  "final_holdout": {
+    "questions": 24,
+    "answerable_recall": 0.7,
+    "answerable_precision": 1.0,
+    "no_answer_accuracy": 1.0,
+    "evidence_selection_accuracy": 1.0,
+    "p95_gate_latency_ms": 4590.2217999100685,
+    "average_deepseek_cost_cny_per_query": 0.010412896666666666,
+    "all_mvp_acceptance_met": true
+  },
+  "policy": "No tuning from Holdout cases; individual Holdout failures remain sealed."
+}

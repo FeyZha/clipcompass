@@ -179,3 +179,5 @@ dd { margin: 0; font: 700 27px var(--serif); }
 @media (max-width: 600px) {
   .masthead { height: auto; min-height: 88px; flex-wrap: wrap; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
 }
+
+@media (max-width: 520px) { .hero::after { right: 0; transform: none; font-size: 300px; } }

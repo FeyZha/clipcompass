@@ -11,3 +11,4 @@ runtime/
 demo-dist/
 *.tsbuildinfo
 .wrangler/
+.vercel

@@ -1,0 +1,17 @@
+{
+  "id": "pipeline_v1_rescue",
+  "parent": "pipeline_v1",
+  "parent_manifest_sha256": "ecf06cd79c72c54027cc7756903dfb01683c0cb1b2fc5d627e4db21f5f188b82",
+  "default_enabled": false,
+  "status": "retained experimental branch, excluded from holdout run",
+  "variant": "rescue_20",
+  "entrypoint": "evaluation/run_rescue_v1.py",
+  "existing_results": "evaluation_runs/rescue_v1/rescue_20",
+  "source_hashes": {
+    "evaluation/run_rescue_v1.py": "494a55e4cc76df2bc9718a15ac2447c37d8ebc71d4614958cb3b209738174f0e",
+    "evaluation/test_rescue_v1.py": "929a14bdc594b1b26a9413664145783aef78b73875209792758968c03aa8c0b7",
+    "evaluation_runs/window_v1/dense_window_l/chunks.jsonl": "e6fd3badbd76e3d0880e81581d69c83b6e7dc8aba2636925a11cad7a92655025",
+    "evaluation_runs/window_v1/dense_window_l/config.json": "b20294aa3fef0d34dc78def1e25c0bf584f8a678049bbd11072b6c5647322073",
+    "evaluation_runs/window_v1/dense_window_l/embedding_cache.npz": "f9a23617d0e81bd4bec370f1a73b464e1879edb97b7104b3fb536329aace2fe3"
+  }
+}

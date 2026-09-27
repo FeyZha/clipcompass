@@ -1,5 +1,7 @@
 # ClipCompass
 
+[在线体验](https://feyzha-clipcompass.vercel.app) · [GitHub](https://github.com/FeyZha/clipcompass)
+
 从收藏的视频中找到相关讲解，查看章节报告，并跳转到原视频的对应时间。
 
 ## 功能
@@ -26,7 +28,7 @@ python -m http.server 8080 --bind 127.0.0.1 --directory demo
 - `demo/`：可独立部署的静态网页及预制数据。
 - `library/`：检索、章节整理、收藏与本地服务实现。
 - `extension/`：浏览器侧栏源码。
-- `llm/`、`schemas/`、`tests/`：模型协议、数据约束和测试。
+- `llm/`、`evaluation/`、`library/tests/`：模型协议、评测实现和回归检查。
 
 ## 验证
 
