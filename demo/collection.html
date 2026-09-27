@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的收藏 · ClipCompass | 视频知识库与学习助手</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/collection.js" defer></script>
+<script src="/demo.js" defer></script></head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="ClipCompass | 视频知识库与学习助手 首页"><span class="brand-mark" aria-hidden="true">C</span><span><strong>ClipCompass</strong><small>视频知识库与学习助手</small></span></a>
+    <nav class="page-nav" aria-label="主导航"><a href="/">返回提问 ↗</a><a href="/collection.html" aria-current="page">我的收藏</a></nav>
+  </header>
+  <main class="collection-page">
+    <header class="collection-heading">
+      <div><p class="eyebrow">YOUR SAVED LIBRARY</p><h1>先看看，<br /><em>收藏了什么。</em></h1><p id="libraryTitle" class="promise">正在读取当前收藏…</p></div>
+      <div class="collection-total"><strong id="videoTotal">—</strong><span>个收藏视频</span><small id="libraryDuration"></small></div>
+    </header>
+    <section aria-label="收藏视频列表">
+      <div class="collection-tools">
+        <div><label for="videoFilter">查找标题或作者</label><input id="videoFilter" type="search" placeholder="例如：sleep、BBC、李宏毅" disabled aria-describedby="filterHelp" /></div>
+        <button id="clearFilter" type="button" disabled>清空筛选</button>
+      </div>
+      <p id="filterHelp" class="collection-help">这里按标题和作者筛选，不搜索字幕内容。想找知识片段？<a href="/">返回提问</a>。</p>
+      <p id="listStatus" role="status" aria-live="polite">正在加载视频列表…</p>
+      <button id="retryLibrary" type="button" hidden>重新加载</button>
+      <ol id="videoList" class="video-list"></ol>
+      <p id="emptyLibrary" class="collection-empty" hidden></p>
+    </section>
+    <footer class="boundary"><span>YOUR COLLECTION · LOCAL INDEX</span><p>只展示当前检索范围中的视频；原视频在新标签页打开。</p></footer>
+  </main>
+</body>
+</html>

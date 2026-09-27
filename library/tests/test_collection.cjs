@@ -1,0 +1,16 @@
+const assert = require('node:assert/strict');
+const {collectionVideos, filterVideos, videoDuration, safeVideoURL} = require('../static/collection.js');
+const videos = [{video_id:'a', title:'Sleep & Memory', creator:'TED-Ed'}, {video_id:'b', title:'深度学习', creator:'李宏毅'}];
+assert.deepEqual(collectionVideos({collections:[{video_ids:['b']}],videos}), [videos[1]]);
+assert.deepEqual(collectionVideos({videos}), []);
+assert.deepEqual(filterVideos(videos, ' SLEEP ted '), [videos[0]]);
+assert.deepEqual(filterVideos(videos, '李宏毅'), [videos[1]]);
+assert.equal(filterVideos(videos, 'nothing').length, 0);
+assert.equal(filterVideos(videos, '').length, 2);
+assert.equal(videoDuration(3661), '1:01:01');
+assert.equal(videoDuration(61), '1:01');
+assert.equal(videoDuration(null), '时长未知');
+assert.equal(safeVideoURL('javascript:alert(1)'), null);
+assert.equal(safeVideoURL('https://youtube.com.evil.test/watch'), null);
+assert.equal(safeVideoURL('https://www.youtube.com/watch?v=x'), 'https://www.youtube.com/watch?v=x');
+console.log('Collection scope, filtering, duration and safe links passed');

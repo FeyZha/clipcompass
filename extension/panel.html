@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ClipCompass | 视频知识库与学习助手</title><link rel="stylesheet" href="panel.css"><script type="module" src="panel.js"></script></head>
+<body>
+  <header><div class="brand" aria-label="ClipCompass | 视频知识库与学习助手"><svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M25 9a12 12 0 1 0 2 12"/><path d="m12 15 13-8-6 15-2-6Z"/></svg><div>ClipCompass<span>视频知识库与学习助手</span></div></div><span class="edition">本地空间</span></header>
+  <nav aria-label="侧栏功能"><button data-view="search" aria-current="page">找知识</button><button data-view="library">整理状态</button><button data-view="settings">设置</button></nav>
+  <main>
+    <p id="notice" role="status" hidden></p>
+    <section id="searchView">
+      <div class="intro"><span class="eyebrow">让收藏，重新有用</span><h1>今天想弄懂什么？</h1><p>从看过的视频里，<br>找回值得重看的一段。</p></div>
+      <form id="searchForm"><label class="sr-only" for="question">想从收藏中了解什么？</label><textarea id="question" maxlength="2000" rows="4" required placeholder="问问你收藏过的视频…"></textarea><div class="form-bottom"><span id="scope">正在连接收藏…</span><button id="searchButton" type="submit" aria-label="查找讲解" title="查找讲解" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button></div></form>
+      <p class="suggestion-label">从一个问题开始</p><div id="presets" class="presets"></div>
+      <div id="progress" role="status" hidden>正在理解问题并核实视频章节…<small>可切换网页。关闭侧栏可能中断本次请求。</small></div>
+      <div id="report"></div>
+    </section>
+    <section id="libraryView" hidden>
+      <div class="view-heading"><span class="eyebrow">你的后台助手</span><h1>整理中的内容</h1><p class="muted">收藏交给我们，继续做你的事。<br>完成的任务会自动移出这里。</p></div>
+      <div class="capture"><p id="currentVideo">切到 YouTube 视频页，即可收藏当前视频。</p><button id="saveCurrent" disabled>收藏当前视频 ＋</button><small>收藏后自动获取字幕、整理内容章节，完成后即可检索。无需保持侧栏打开。</small></div>
+      <p id="libraryCount" class="muted" role="status"></p><div id="videos"></div>
+    </section>
+    <section id="settingsView" hidden>
+      <div class="view-heading"><span class="eyebrow">按你的习惯来</span><h1>偏好设置</h1><p class="muted">连接本地服务，让知识留在自己手里。</p></div><h2>本地连接</h2>
+      <form id="settingsForm"><label for="port">本地服务端口</label><input id="port" type="number" min="1024" max="65535" value="1485" required><p class="muted">固定连接本机 127.0.0.1，不向网页开放接口。</p><button type="submit">保存并检查连接</button></form>
+      <p id="connection" role="status"></p>
+      <h2>Obsidian 知识库</h2>
+      <form id="obsidianForm"><label for="vaultPath">知识库文件夹完整路径</label><input id="vaultPath" type="text" placeholder="D:\Notes\MyVault" required><small>单向写入 ClipCompass 子文件夹：章节笔记与带时间戳的原字幕。首次同步包含现有内容，不覆盖同名笔记或个人批注。</small><div class="actions"><button id="syncObsidian" type="submit">保存路径并同步</button><button id="disableObsidian" type="button" class="secondary">关闭自动同步</button></div></form>
+      <p id="obsidianStatus" role="status" class="muted">连接服务后查看同步状态。</p>
+      <h2>你的数据去哪里？</h2><p>收藏后，本地服务获取该视频的公开字幕，并提交给 DeepSeek 整理章节；只获取字幕，不下载音视频。搜索时将问题与候选字幕交给 DeepSeek 核实，不读取其他网页内容。</p>
+      <p>报告与草稿保存在本浏览器；已提交的收藏与整理进度保存在本机服务，不进行账号同步。侧栏关闭不影响后台整理；服务重启后继续，失败可手动重试。</p>
+      <button id="clearReport" class="quiet">清除本地问题与报告</button>
+      <p class="muted">初版需本机检索服务运行。服务未启动时，仍可查看缓存与保存视频链接；不会把新收藏伪装成已可检索。</p>
+    </section>
+  </main>
+  <footer>基于你的收藏，始终保留出处。<span>ClipCompass · 个人视频知识助手</span></footer>
+</body></html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="从收藏视频中找到足以回答问题的准确片段。" />
+    <title>ClipCompass | 视频知识库与学习助手</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="ClipCompass | 视频知识库与学习助手 首页"><span class="brand-mark" aria-hidden="true">C</span><span><strong>ClipCompass</strong><small>视频知识库与学习助手</small></span></a>
+      <nav class="page-nav" aria-label="主导航"><a href="/collection.html">查看收藏 ↗</a><span class="local-only"><i></i> 仅搜索收藏内容</span></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">STOP SCRUBBING. START LEARNING.</p>
+          <h1>收藏过的知识，<br /><em>直接跳到答案附近。</em></h1>
+          <p class="promise">在你确认收藏的视频里找证据。找不到，就明确结束查找。</p>
+        </div>
+        <form class="search-panel" id="searchForm">
+          <label for="question">你想从收藏的视频里找什么？</label>
+          <div class="question-row">
+            <textarea id="question" rows="2" placeholder="例如：MCP 如何避免每个客户端重复实现工具连接？" required></textarea>
+            <button id="searchButton" type="submit"><span>从收藏中查找</span><b>↗</b></button>
+          </div>
+          <div class="scope-row"><span class="scope-dot"></span><strong id="collectionTitle">Demo Collection</strong><span id="scopeCount">正在读取收藏范围…</span></div>
+        </form>
+        <div id="clarification" hidden role="status">
+          <p><strong>先确认一下你想找什么</strong></p>
+          <p id="clarificationText"></p>
+          <button id="editQuestion" type="button">补充问题 ↗</button>
+        </div>
+        <div class="presets" aria-label="演示问题"><span>30秒演示</span><div id="presetList"></div></div>
+      </section>
+      <section class="loading-card" id="loadingCard" hidden aria-live="polite">
+        <span class="loading-index">AI</span>
+        <div><p class="eyebrow">SEARCHING YOUR COLLECTION</p><h2 id="loadingTitle">正在理解问题</h2>
+          <ol id="loadingSteps"><li class="active">正在理解问题</li><li>正在搜索收藏内容</li><li>正在确认片段是否真正回答问题</li></ol>
+        </div>
+      </section>
+      <section class="workspace" id="workspace" hidden aria-live="polite">
+        <p id="intentNote" hidden role="status"></p>
+        <section id="learningMap" hidden aria-labelledby="mapTitle">
+          <header class="map-heading"><p class="eyebrow">YOUR LEARNING BRIEF</p><h2 id="mapTitle">围绕问题，整理成一份报告。</h2>
+            <p id="reportQuestion"></p><p id="reportSummary"></p><p id="mapNotice"></p></header>
+          <nav id="reportOutline" aria-label="报告目录"></nav>
+          <div id="reportSections"></div>
+          <div id="reportGaps" hidden></div>
+        </section>
+        <article class="answer-card" id="answerCard" hidden>
+          <div class="answer-stamp"><span>FOUND</span><small>收藏中有答案</small></div>
+          <div class="answer-copy"><p class="eyebrow">找到相关讲解</p><h2 id="videoTitle"></h2><p class="reason" id="reason"></p>
+            <dl><div><dt>建议观看</dt><dd id="watchRange"></dd></div><div><dt>推荐起点</dt><dd id="coreStart"></dd></div></dl>
+            <a class="watch-button" id="watchButton" target="_blank" rel="noopener"><span id="watchButtonText"></span><b>↗</b></a>
+            <p class="watch-note">推荐起点用于快速进入主题；建议观看范围包含理解完整解释所需的相邻上下文。</p>
+          </div>
+        </article>
+        <article class="no-answer" id="noAnswer" hidden>
+          <span>∅</span><div><p class="eyebrow">NO SUFFICIENT EVIDENCE</p><h2>当前收藏的视频中，没有找到足够回答这个问题的内容。</h2><p>无需继续逐个视频查找。</p></div>
+        </article>
+      </section>
+      <footer class="boundary"><span>04 VIDEOS · LOCAL INDEX</span><p>没有外部答案兜底。系统只判断当前收藏视频中是否存在足够证据。</p></footer>
+    </main>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script src="/learning-route.js" defer></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
